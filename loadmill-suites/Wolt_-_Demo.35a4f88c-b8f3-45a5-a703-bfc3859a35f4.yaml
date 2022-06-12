@@ -1,0 +1,770 @@
+conf:
+  meta:
+    description: Wolt - Demo
+  parameters:
+    - origin_1: https://restaurant-api.wolt.com
+    - origin_2: https://gatekeeper.wolt.com
+    - origin_3: https://static.wolt.com
+    - origin_4: https://wolt.com
+    - origin_5: https://cdn.wolt.com
+  useCookies: true
+  loginFlow: []
+  authenticationHeaders: []
+  parametersScope: SUITE
+flows:
+  - id: 0e6b8dab-8918-4f20-bc2c-6a1f532494ed
+    order: 0
+    conf:
+      meta:
+        description: Create/Delete Group Order
+      requests:
+        
+        - description: GET lottie/wolt_logo_animation_white.json
+          method: GET
+          url: ${origin_5}/lottie/wolt_logo_animation_white.json
+
+        - description: GET venues/slug/at-malis/menu
+          method: GET
+          url: ${origin_1}/v4/venues/slug/at-malis/menu?unit_prices=true&show_weighted_items=true
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: en
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "8843811984111755392"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "2747917132707753787"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+          extract:
+            - language_of_2nd_language_in_response_body_2:
+                jsonPath: $["languages"][1]["language"]
+            - id_of_1st_item_in_response_body_2:
+                jsonPath: $["items"][0]["id"]
+          assert: []
+
+        - description: GET venues/slug/at-malis
+          method: GET
+          url: ${origin_1}/v3/venues/slug/at-malis
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${language_of_2nd_language_in_response_body_2}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "203688987997970110"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "6507266409224581872"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+          extract:
+            - lang_of_1st_description_of_1st_result_in_response_body_3:
+                jsonPath: $["results"][0]["description"][0]["lang"]
+            - oid_id_of_1st_result_in_response_body_3:
+                jsonPath: $["results"][0]["id"]["$oid"]
+            - oid_active_menu_of_1st_result_in_response_body_3:
+                jsonPath: $["results"][0]["active_menu"]["$oid"]
+            - the_1st_food_tag_of_1st_result_in_response_body_3:
+                jsonPath: $["results"][0]["food_tags"][0]
+            - the_2nd_food_tag_of_1st_result_in_response_body_3:
+                jsonPath: $["results"][0]["food_tags"][1]
+            - the_3rd_food_tag_of_1st_result_in_response_body_3:
+                jsonPath: $["results"][0]["food_tags"][2]
+            - timezone_of_1st_result_in_response_body_3:
+                jsonPath: $["results"][0]["timezone"]
+          assert: []
+
+        - description: POST venues/${oid_id_of_1st_result}/estimates
+          method: POST
+          url: ${origin_1}/v1/venues/${__encode_url(oid_id_of_1st_result_in_response_body_3)}/estimates
+          postData:
+            text: "{}"
+            mimeType: application/json
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${lang_of_1st_description_of_1st_result_in_response_body_3}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "1971377637808181516"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "8145911514580266843"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: GET lottie/wolt_logo_animation_black.json
+          method: GET
+          url: ${origin_5}/lottie/wolt_logo_animation_black.json
+
+        - description: GET lottie/assets/burger_fries_1-1.json
+          method: GET
+          url: ${origin_5}/lottie/assets/burger_fries_1-1.json
+
+        - description: GET lottie/assets/waiter_order_1-1.json
+          method: GET
+          url: ${origin_5}/lottie/assets/waiter_order_1-1.json
+
+        - description: POST group_order
+          method: POST
+          url: ${origin_1}/v1/group_order/
+          postData:
+            text: >-
+              {
+                "name": "Yann and friends",
+                "venue_id": "${__escape_quotes(oid_id_of_1st_result_in_response_body_3)}",
+                "emoji": "burger",
+                "delivery_method": "homedelivery"
+              }
+            mimeType: application/json
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${lang_of_1st_description_of_1st_result_in_response_body_3}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "3421242523774745322"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "1429230348166841292"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+          extract:
+            - id_in_response_body_8:
+                jsonPath: $["id"]
+            - host_id_in_response_body_8:
+                jsonPath: $["host_id"]
+          assert: []
+
+        - description: GET group_order/${id}/friends
+          method: GET
+          url: ${origin_1}/v1/group_order/${__encode_url(id_in_response_body_8)}/friends
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${lang_of_1st_description_of_1st_result_in_response_body_3}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "4954417701458787274"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "85210277021231269"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: GET group_order/subscriptions
+          method: GET
+          url: ${origin_1}/v1/group_order/subscriptions
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${lang_of_1st_description_of_1st_result_in_response_body_3}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "3828452057902865467"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "451823331380627736"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: GET lottie/assets/girl_invite_planes_1-1.json
+          method: GET
+          url: ${origin_5}/lottie/assets/girl_invite_planes_1-1.json
+
+        - description: POST consumer
+          method: POST
+          url: ${origin_2}/v1/consumer
+          postData:
+            text: >-
+              {
+                "device_type": "web",
+                "build_version": 0,
+                "application_version": "",
+                "system_version": "",
+                "device_locale": "en-US",
+                "user_id": "${__escape_quotes(host_id_in_response_body_8)}",
+                "device_id": "46edd1e8-f919-470b-b909-013f2aad6fa1",
+                "visitor_id": "46edd1e8-f919-470b-b909-013f2aad6fa1",
+                "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36",
+                "upload_timestamp": 1654514564431,
+                "timezone": "${__escape_quotes(timezone_of_1st_result_in_response_body_3)}",
+                "screen_size": "1440x900",
+                "session_id": "b416a4c4-27c3-4cf1-87e7-6491d56cbc0b",
+                "store_distribution": false,
+                "browser_fingerprint": "deaa68dc01bb2ea3c2c95ca82978af6a",
+                "event_bundle_id": "65f8f034-6eb4-423d-84a3-6f8b3eccf5a9",
+                "events": [
+                  {
+                    "log_type": "session",
+                    "attributes": {
+                      "referrer_type": "link",
+                      "referred_link": "https://wolt.com/"
+                    },
+                    "timestamp": 1654514551038,
+                    "event_name": "foreground"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 7,
+                      "title": "",
+                      "track_id": "curated-tel-aviv-abd4d57c-31a4-11ec-bd86-561275932094_______min",
+                      "section_index": "0",
+                      "section_title": "",
+                      "section_name": "ta_wolt_news",
+                      "page": "discovery"
+                    },
+                    "timestamp": 1654514552123,
+                    "event_name": "banner"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 0,
+                      "title": "Hummus Bahadunas | Yad Harutzim",
+                      "track_id": "venue-hummus-bahadunas-yad-harutzim",
+                      "section_index": "1",
+                      "section_title": "Lunch Deals 🍽",
+                      "section_name": "deals_tlv",
+                      "page": "discovery",
+                      "venue_id": "5fb131dd8e53afa9473eb1a9",
+                      "venue_price_range": 1,
+                      "venue_rating": 3,
+                      "venue_status": null,
+                      "venue_open": true,
+                      "venue_tags": [
+                        "mediterranean",
+                        "kosher"
+                      ],
+                      "estimate_min": 25,
+                      "estimate_max": 35
+                    },
+                    "timestamp": 1654514552593,
+                    "event_name": "venue"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 1,
+                      "title": "Etzel Mali",
+                      "track_id": "venue-at-malis",
+                      "section_index": "1",
+                      "section_title": "Lunch Deals 🍽",
+                      "section_name": "deals_tlv",
+                      "page": "discovery",
+                      "venue_id": "${__escape_quotes(oid_id_of_1st_result_in_response_body_3)}",
+                      "venue_price_range": 1,
+                      "venue_rating": 3,
+                      "venue_status": null,
+                      "venue_open": true,
+                      "venue_tags": [
+                        "${__escape_quotes(the_1st_food_tag_of_1st_result_in_response_body_3)}",
+                        "${__escape_quotes(the_2nd_food_tag_of_1st_result_in_response_body_3)}",
+                        "${__escape_quotes(the_3rd_food_tag_of_1st_result_in_response_body_3)}"
+                      ],
+                      "estimate_min": 30,
+                      "estimate_max": 40
+                    },
+                    "timestamp": 1654514552593,
+                    "event_name": "venue"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 2,
+                      "title": "Hummus Ashkara",
+                      "track_id": "venue-hummusashkara",
+                      "section_index": "1",
+                      "section_title": "Lunch Deals 🍽",
+                      "section_name": "deals_tlv",
+                      "page": "discovery",
+                      "venue_id": "5c7571501d54be000af96f60",
+                      "venue_price_range": 2,
+                      "venue_rating": 3,
+                      "venue_status": null,
+                      "venue_open": true,
+                      "venue_tags": [
+                        "${__escape_quotes(the_1st_food_tag_of_1st_result_in_response_body_3)}",
+                        "salad"
+                      ],
+                      "estimate_min": 20,
+                      "estimate_max": 30
+                    },
+                    "timestamp": 1654514552593,
+                    "event_name": "venue"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 0,
+                      "title": "Hummus Bahadunas | Yad Harutzim",
+                      "track_id": "venue-hummus-bahadunas-yad-harutzim",
+                      "section_index": "1",
+                      "section_title": "Lunch Deals 🍽",
+                      "section_name": "deals_tlv",
+                      "page": "discovery",
+                      "venue_id": "5fb131dd8e53afa9473eb1a9",
+                      "venue_price_range": 1,
+                      "venue_rating": 3,
+                      "venue_status": null,
+                      "venue_open": true,
+                      "venue_tags": [
+                        "mediterranean",
+                        "kosher"
+                      ],
+                      "estimate_min": 25,
+                      "estimate_max": 35
+                    },
+                    "timestamp": 1654514554543,
+                    "event_name": "venue"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 1,
+                      "title": "Etzel Mali",
+                      "track_id": "venue-at-malis",
+                      "section_index": "1",
+                      "section_title": "Lunch Deals 🍽",
+                      "section_name": "deals_tlv",
+                      "page": "discovery",
+                      "venue_id": "${__escape_quotes(oid_id_of_1st_result_in_response_body_3)}",
+                      "venue_price_range": 1,
+                      "venue_rating": 3,
+                      "venue_status": null,
+                      "venue_open": true,
+                      "venue_tags": [
+                        "${__escape_quotes(the_1st_food_tag_of_1st_result_in_response_body_3)}",
+                        "${__escape_quotes(the_2nd_food_tag_of_1st_result_in_response_body_3)}",
+                        "${__escape_quotes(the_3rd_food_tag_of_1st_result_in_response_body_3)}"
+                      ],
+                      "estimate_min": 30,
+                      "estimate_max": 40
+                    },
+                    "timestamp": 1654514554543,
+                    "event_name": "venue"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 2,
+                      "title": "Hummus Ashkara",
+                      "track_id": "venue-hummusashkara",
+                      "section_index": "1",
+                      "section_title": "Lunch Deals 🍽",
+                      "section_name": "deals_tlv",
+                      "page": "discovery",
+                      "venue_id": "5c7571501d54be000af96f60",
+                      "venue_price_range": 2,
+                      "venue_rating": 3,
+                      "venue_status": null,
+                      "venue_open": true,
+                      "venue_tags": [
+                        "${__escape_quotes(the_1st_food_tag_of_1st_result_in_response_body_3)}",
+                        "salad"
+                      ],
+                      "estimate_min": 20,
+                      "estimate_max": 30
+                    },
+                    "timestamp": 1654514554543,
+                    "event_name": "venue"
+                  },
+                  {
+                    "log_type": "interaction",
+                    "view": "featured",
+                    "attributes": {
+                      "track_id": "venue-at-malis",
+                      "content_type": "image",
+                      "item_index": 1,
+                      "page": "discovery",
+                      "section_index": "1",
+                      "section_name": "deals_tlv",
+                      "section_title": "Lunch Deals 🍽",
+                      "title": "Etzel Mali"
+                    },
+                    "timestamp": 1654514554649,
+                    "event_name": "click"
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "featured",
+                    "attributes": {
+                      "section_count": 13,
+                      "page": "discovery:front-page:tel-aviv"
+                    },
+                    "timestamp": 1654514551039,
+                    "duration": 3731
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "venue",
+                    "attributes": {
+                      "menu_id": "${__escape_quotes(oid_active_menu_of_1st_result_in_response_body_3)}",
+                      "has_image": true,
+                      "tag": "",
+                      "menu_item_index": 0,
+                      "menu_item_id": "${__escape_quotes(id_of_1st_item_in_response_body_2)}",
+                      "venue_id": "${__escape_quotes(oid_id_of_1st_result_in_response_body_3)}",
+                      "is_out_of_stock": false
+                    },
+                    "timestamp": 1654514556139
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "venue",
+                    "attributes": {
+                      "venue_id": "${__escape_quotes(oid_id_of_1st_result_in_response_body_3)}",
+                      "is_available": true,
+                      "venue_favorite": false,
+                      "menu_items_count": 50,
+                      "out_of_stock_items_count": 0,
+                      "has_images": true
+                    },
+                    "timestamp": 1654514554802,
+                    "duration": 3127
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "refill",
+                    "attributes": {},
+                    "timestamp": 1654514554797,
+                    "duration": 3133
+                  },
+                  {
+                    "log_type": "data",
+                    "view": "create_group",
+                    "attributes": {},
+                    "timestamp": 1654514559810,
+                    "event_name": "create_group"
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "create_group",
+                    "attributes": {},
+                    "timestamp": 1654514557936,
+                    "duration": 1884
+                  },
+                  {
+                    "log_type": "data",
+                    "view": "group_order_payment_details",
+                    "attributes": {
+                      "group_id": "${__escape_quotes(id_in_response_body_8)}"
+                    },
+                    "timestamp": 1654514562501,
+                    "event_name": "create_group"
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "group_order_payment_details",
+                    "attributes": {},
+                    "timestamp": 1654514559820,
+                    "duration": 2690
+                  }
+                ]
+              }
+            mimeType: application/json
+          headers:
+            - accept: "*/*"
+            - accept-language: en-US,en;q=0.9
+            - client: web
+            - referer: https://wolt.com/
+            - x-api-key: Uyf4t2ie9Y1dWJDBjrmwmCdjsz9QFT21jU3WoAg1
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "998005533951666694"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "7992053933564469816"
+
+        - description: GET lottie/wolt_logo_animation_white.json
+          method: GET
+          url: ${origin_5}/lottie/wolt_logo_animation_white.json
+
+        - description: POST group_order/${id}/estimates
+          method: POST
+          url: ${origin_1}/v1/group_order/${__encode_url(id_in_response_body_8)}/estimates
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${lang_of_1st_description_of_1st_result_in_response_body_3}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "4659691800686880815"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "4968058443444281018"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: DELETE group_order/${id}
+          method: DELETE
+          url: ${origin_1}/v1/group_order/${__encode_url(id_in_response_body_8)}
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${lang_of_1st_description_of_1st_result_in_response_body_3}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "7755256667206573184"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "8394879441871257793"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: GET lottie/wolt_logo_animation_white.json
+          method: GET
+          url: ${origin_5}/lottie/wolt_logo_animation_white.json
+
+        - description: GET lottie/wolt_logo_animation_black.json
+          method: GET
+          url: ${origin_5}/lottie/wolt_logo_animation_black.json
+
+        - description: POST group_order/${id}/estimates
+          method: POST
+          url: ${origin_1}/v1/group_order/${__encode_url(id_in_response_body_8)}/estimates
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${lang_of_1st_description_of_1st_result_in_response_body_3}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "1966575910641336790"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "3537823532877814171"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: GET order_details/subscriptions
+          method: GET
+          url: ${origin_1}/v2/order_details/subscriptions
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${lang_of_1st_description_of_1st_result_in_response_body_3}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "1424972741879979962"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "8647136049530834385"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: GET pages/front
+          method: GET
+          url: ${origin_1}/v1/pages/front?lat=32.087236876497585&lon=34.78698525756491
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${lang_of_1st_description_of_1st_result_in_response_body_3}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "527315450712069431"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "18270853933643016"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+          extract:
+            - title_of_1st_item_of_1st_section_in_response_body_20:
+                jsonPath: $["sections"][0]["items"][0]["title"]
+            - track_id_of_1st_item_of_1st_section_in_response_body_20:
+                jsonPath: $["sections"][0]["items"][0]["track_id"]
+          assert: []
+
+        - description: GET group_order/subscriptions
+          method: GET
+          url: ${origin_1}/v1/group_order/subscriptions
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${lang_of_1st_description_of_1st_result_in_response_body_3}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI1MDQxODVlNmRjZjAxMWVjYjExNGJlNmUxMjdhMWZmZSJ9.eyJhdWQiOlsidmVudWUtY29udGVudC1hcGkiLCJyZXN0YXVyYW50LWFwaSIsImNvdXJpZXJjbGllbnQiLCJ3b2x0LWNvbSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNTQ0ZDQ2MWFlNTg5MTFlY2JiNWE1ZTc4NzdhOTI0NjYiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU0NTEzODUyLCJleHAiOjE2NTQ1MTU2NTIsImFtciI6W119.OC6JW1UYsE9sqCYwrHjWepmPCn_QGTTWPxCZ8HBdyIyj0fxFyze_HNYCpcmFA-KK0noSp17dVcN4_P8mnFmfCA
+            - clientversionnumber: 1.7.37
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: b416a4c4-27c3-4cf1-87e7-6491d56cbc0b
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "1092899135100663398"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "8657273110755965237"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: POST consumer
+          method: POST
+          url: ${origin_2}/v1/consumer
+          postData:
+            text: >-
+              {
+                "device_type": "web",
+                "build_version": 0,
+                "application_version": "",
+                "system_version": "",
+                "device_locale": "en-US",
+                "user_id": "${__escape_quotes(host_id_in_response_body_8)}",
+                "device_id": "46edd1e8-f919-470b-b909-013f2aad6fa1",
+                "visitor_id": "46edd1e8-f919-470b-b909-013f2aad6fa1",
+                "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.61 Safari/537.36",
+                "upload_timestamp": 1654514594435,
+                "timezone": "${__escape_quotes(timezone_of_1st_result_in_response_body_3)}",
+                "screen_size": "1440x900",
+                "session_id": "b416a4c4-27c3-4cf1-87e7-6491d56cbc0b",
+                "store_distribution": false,
+                "browser_fingerprint": "deaa68dc01bb2ea3c2c95ca82978af6a",
+                "event_bundle_id": "667fca6f-b3dd-4f94-a8c3-b02f27b33428",
+                "events": [
+                  {
+                    "log_type": "data",
+                    "view": "invite_group_members",
+                    "attributes": {
+                      "group_id": "${__escape_quotes(id_in_response_body_8)}"
+                    },
+                    "timestamp": 1654514566566,
+                    "event_name": "invite_done"
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "invite_group_members",
+                    "attributes": {},
+                    "timestamp": 1654514562510,
+                    "duration": 4147
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "venue",
+                    "attributes": {
+                      "menu_id": "${__escape_quotes(oid_active_menu_of_1st_result_in_response_body_3)}",
+                      "has_image": true,
+                      "tag": "",
+                      "menu_item_index": 0,
+                      "menu_item_id": "${__escape_quotes(id_of_1st_item_in_response_body_2)}",
+                      "venue_id": "${__escape_quotes(oid_id_of_1st_result_in_response_body_3)}",
+                      "is_out_of_stock": false
+                    },
+                    "timestamp": 1654514568138
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "venue",
+                    "attributes": {
+                      "venue_id": "${__escape_quotes(oid_id_of_1st_result_in_response_body_3)}",
+                      "is_available": true,
+                      "venue_favorite": false,
+                      "menu_items_count": 50,
+                      "out_of_stock_items_count": 0,
+                      "has_images": true
+                    },
+                    "timestamp": 1654514566687,
+                    "duration": 5053
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "venue",
+                    "attributes": {
+                      "venue_id": "${__escape_quotes(oid_id_of_1st_result_in_response_body_3)}",
+                      "is_available": true,
+                      "venue_favorite": false,
+                      "menu_items_count": 50,
+                      "out_of_stock_items_count": 0,
+                      "has_images": true
+                    },
+                    "timestamp": 1654514572278,
+                    "duration": 79
+                  },
+                  {
+                    "log_type": "data",
+                    "view": "featured",
+                    "attributes": {
+                      "page": "discovery:front-page:tel-aviv",
+                      "section_count": 13,
+                      "discovery_city": "tel-aviv"
+                    },
+                    "timestamp": 1654514572375,
+                    "event_name": "content_changed"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 0,
+                      "title": "${__escape_quotes(title_of_1st_item_of_1st_section_in_response_body_20)}",
+                      "track_id": "${__escape_quotes(track_id_of_1st_item_of_1st_section_in_response_body_20)}",
+                      "section_index": "0",
+                      "section_title": "",
+                      "section_name": "ta_wolt_news",
+                      "page": "discovery"
+                    },
+                    "timestamp": 1654514572843,
+                    "event_name": "banner"
+                  }
+                ]
+              }
+            mimeType: application/json
+          headers:
+            - accept: "*/*"
+            - accept-language: en-US,en;q=0.9
+            - client: web
+            - referer: https://wolt.com/
+            - x-api-key: Uyf4t2ie9Y1dWJDBjrmwmCdjsz9QFT21jU3WoAg1
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "1291917633576373173"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "2105390574243521918"
+
+    runInCi: false
+dependencies:
+  login:
+    id: 310ad689-d563-495e-8e4a-14e0c800c536

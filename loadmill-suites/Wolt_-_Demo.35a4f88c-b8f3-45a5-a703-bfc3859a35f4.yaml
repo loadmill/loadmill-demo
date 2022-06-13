@@ -19,10 +19,10 @@ flows:
     order: 0
     conf:
       meta:
-        description: Create/Delete Group Order mehh
+        description: Create/Delete Group Order
       requests:
         
-        - description: GET user/me testing
+        - description: GET user/me
           method: GET
           url: ${origin_1}/v1/user/me
           headers:

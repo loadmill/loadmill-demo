@@ -24,7 +24,7 @@ flows:
         
         - description: GET user/me
           method: GET
-          url: ${origin_1}/v1/user/me
+          url: ${origin_1}/v1/user/me?test=true
           headers:
             - accept: application/json, text/plain, */*
             - accept-language: en-US,en;q=0.9

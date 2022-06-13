@@ -22,9 +22,9 @@ flows:
         description: Create/Delete Group Order
       requests:
         
-        - description: GET user/me
+        - description: GET user/me testing
           method: GET
-          url: ${origin_1}/v1/user/me?test=true
+          url: ${origin_1}/v1/user/me
           headers:
             - accept: application/json, text/plain, */*
             - accept-language: en-US,en;q=0.9

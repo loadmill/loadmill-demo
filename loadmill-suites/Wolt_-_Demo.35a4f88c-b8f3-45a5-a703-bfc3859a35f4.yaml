@@ -19,7 +19,7 @@ flows:
     order: 0
     conf:
       meta:
-        description: Create/Delete Group Order
+        description: Create/Delete Group Order mehh
       requests:
         
         - description: GET user/me testing

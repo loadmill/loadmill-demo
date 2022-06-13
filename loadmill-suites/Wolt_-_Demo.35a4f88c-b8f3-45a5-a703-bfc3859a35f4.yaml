@@ -28,7 +28,7 @@ flows:
 
         - description: GET venues/slug/at-malis/menu
           method: GET
-          url: ${origin_1}/v4/venues/slug/at-malis/menu?unit_prices=false&show_weighted_items=true
+          url: ${origin_1}/v4/venues/slug/at-malis/menu?unit_prices=false&show_weighted_items=true&test=true
           headers:
             - accept: application/json, text/plain, */*
             - accept-language: en-US,en;q=0.9

@@ -656,13 +656,13 @@ flows:
             - authorization: Bearer
                 eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsid29sdC1jb20iLCJ3b2x0YXV0aCIsInZlbnVlLWNvbnRlbnQtYXBpIiwicmVzdGF1cmFudC1hcGkiLCJjb3VyaWVyY2xpZW50Il0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNzZmNjQ4NzBlYmNkMTFlY2IwMGYxNmQwNWZiNDA3YTMiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjAyODIzLCJleHAiOjE2NTUyMDQ2MjMsImFtciI6W119.e6JyULsZNS-TekaLp21VV2wVXjvOkO-p5QoJwKjrSedbEihDXr-TFBW5pIL_0y4EX-2Amiit6XaF2ONVkyKAYA
 
-        - description: POST group_order
+        - description: POST create group order
           method: POST
           url: ${origin_1}/v1/group_order/
           postData:
             text: |-
               {
-                "name": "Yann and friends",
+                "name": "Mikko and team",
                 "venue_id": "5df8d98eb6f81852304d8623",
                 "emoji": "burger",
                 "delivery_method": "homedelivery"

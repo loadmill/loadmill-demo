@@ -656,7 +656,7 @@ flows:
             - authorization: Bearer
                 eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsiY291cmllcmNsaWVudCIsInZlbnVlLWNvbnRlbnQtYXBpIiwid29sdC1jb20iLCJyZXN0YXVyYW50LWFwaSIsIndvbHRhdXRoIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiNjk0OGM3N2VlYmM5MTFlYzgwNDcwYWU3YzY5N2Q4YzciLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjAxMDgyLCJleHAiOjE2NTUyMDI4ODIsImFtciI6W119.KGZR78URoaASRQcKxeJf1Oye5BDAwPwihWUThGLq0QUn3Bnf89NL9o242ctZGaKIPEB1qqWbziwwYsOyMb42ng
 
-        - description: POST group_order
+        - description: POST create group order
           method: POST
           url: ${origin_1}/v1/group_order/
           postData:

@@ -14,15 +14,533 @@ conf:
   authenticationHeaders: []
   parametersScope: SUITE
 flows:
-  - id: 8ed2cab9-f3e8-4acb-b637-aeb3ab644dce
+  - id: 6268b9c4-e896-484a-956e-addabac7081f
     order: 0
     conf:
       meta:
-        description: New Flow
+        description: Create/Delete Group Order
       requests:
         
-        - method: GET
-          url: ""
+        - description: POST venues/6267f8de2a48c44f359e446b/estimates
+          method: POST
+          url: ${origin_1}/v1/venues/6267f8de2a48c44f359e446b/estimates
+          postData:
+            text: "{}"
+            mimeType: application/json
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: en
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsiY291cmllcmNsaWVudCIsIndvbHRhdXRoIiwicmVzdGF1cmFudC1hcGkiLCJ3b2x0LWNvbSIsInZlbnVlLWNvbnRlbnQtYXBpIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiZTVhNjRmZmNlYzE1MTFlYzk2ODQ3Mjk4YTRjODMzZmIiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjMzOTMzLCJleHAiOjE2NTUyMzU3MzMsImFtciI6W119.wq80Gj3hq7tuEl8jyDQYwLlcqEbvHohJnn_l3SdXm6eWLKPiQC0RrAtESI_k1IKIlEv9mXX18d1tBZ_qTDcJDA
+            - clientversionnumber: 1.7.40
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "1233941524172121402"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "5443021877836299435"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: GET pages/front
+          method: GET
+          url: ${origin_1}/v1/pages/front?lat=32.087236876497585&lon=34.78698525756491
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: en
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsiY291cmllcmNsaWVudCIsIndvbHRhdXRoIiwicmVzdGF1cmFudC1hcGkiLCJ3b2x0LWNvbSIsInZlbnVlLWNvbnRlbnQtYXBpIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiZTVhNjRmZmNlYzE1MTFlYzk2ODQ3Mjk4YTRjODMzZmIiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjMzOTMzLCJleHAiOjE2NTUyMzU3MzMsImFtciI6W119.wq80Gj3hq7tuEl8jyDQYwLlcqEbvHohJnn_l3SdXm6eWLKPiQC0RrAtESI_k1IKIlEv9mXX18d1tBZ_qTDcJDA
+            - clientversionnumber: 1.7.40
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "3038147536510510792"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "4696893885811705440"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+          extract:
+            - id_venue_of_2nd_item_of_2nd_section_in_response_body_2:
+                jsonPath: $["sections"][1]["items"][1]["venue"]["id"]
+            - title_of_1st_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][0]["title"]
+            - track_id_of_1st_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][0]["track_id"]
+            - title_of_2nd_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][1]["title"]
+            - track_id_of_2nd_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][1]["track_id"]
+            - title_of_3rd_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][2]["title"]
+            - track_id_of_3rd_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][2]["track_id"]
+            - title_of_4th_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][3]["title"]
+            - track_id_of_4th_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][3]["track_id"]
+            - title_of_5th_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][4]["title"]
+            - track_id_of_5th_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][4]["track_id"]
+            - title_of_6th_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][5]["title"]
+            - track_id_of_6th_item_of_1st_section_in_response_body_2:
+                jsonPath: $["sections"][0]["items"][5]["track_id"]
+          assert: []
+
+        - description: POST venues/${id_venue_of_2nd_item_of_2nd_section}/estimates
+          method: POST
+          url: ${origin_1}/v1/venues/${__encode_url(id_venue_of_2nd_item_of_2nd_section_in_response_body_2)}/estimates
+          postData:
+            text: "{}"
+            mimeType: application/json
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: en
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsiY291cmllcmNsaWVudCIsIndvbHRhdXRoIiwicmVzdGF1cmFudC1hcGkiLCJ3b2x0LWNvbSIsInZlbnVlLWNvbnRlbnQtYXBpIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiZTVhNjRmZmNlYzE1MTFlYzk2ODQ3Mjk4YTRjODMzZmIiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjMzOTMzLCJleHAiOjE2NTUyMzU3MzMsImFtciI6W119.wq80Gj3hq7tuEl8jyDQYwLlcqEbvHohJnn_l3SdXm6eWLKPiQC0RrAtESI_k1IKIlEv9mXX18d1tBZ_qTDcJDA
+            - clientversionnumber: 1.7.40
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "4018265129371660690"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "3042161995213551646"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: POST group_order
+          method: POST
+          url: ${origin_1}/v1/group_order/
+          postData:
+            text: >-
+              {
+                "name": "Yann and friends",
+                "venue_id": "${__escape_quotes(id_venue_of_2nd_item_of_2nd_section_in_response_body_2)}",
+                "emoji": "burger",
+                "delivery_method": "homedelivery"
+              }
+            mimeType: application/json
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: en
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsiY291cmllcmNsaWVudCIsIndvbHRhdXRoIiwicmVzdGF1cmFudC1hcGkiLCJ3b2x0LWNvbSIsInZlbnVlLWNvbnRlbnQtYXBpIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiZTVhNjRmZmNlYzE1MTFlYzk2ODQ3Mjk4YTRjODMzZmIiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjMzOTMzLCJleHAiOjE2NTUyMzU3MzMsImFtciI6W119.wq80Gj3hq7tuEl8jyDQYwLlcqEbvHohJnn_l3SdXm6eWLKPiQC0RrAtESI_k1IKIlEv9mXX18d1tBZ_qTDcJDA
+            - clientversionnumber: 1.7.40
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "7550070976660430051"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "7792636603349751079"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+          extract:
+            - id_in_response_body_4:
+                jsonPath: $["id"]
+            - participants_status:
+                jsonPath: $["participants"][0]["status"]
+          assert:
+            - check: participants_status
+              equals: not joined
+
+        - description: POST group_order/${id}/estimates
+          method: POST
+          url: ${origin_1}/v1/group_order/${__encode_url(id_in_response_body_4)}/estimates
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: en
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsiY291cmllcmNsaWVudCIsIndvbHRhdXRoIiwicmVzdGF1cmFudC1hcGkiLCJ3b2x0LWNvbSIsInZlbnVlLWNvbnRlbnQtYXBpIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiZTVhNjRmZmNlYzE1MTFlYzk2ODQ3Mjk4YTRjODMzZmIiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjMzOTMzLCJleHAiOjE2NTUyMzU3MzMsImFtciI6W119.wq80Gj3hq7tuEl8jyDQYwLlcqEbvHohJnn_l3SdXm6eWLKPiQC0RrAtESI_k1IKIlEv9mXX18d1tBZ_qTDcJDA
+            - clientversionnumber: 1.7.40
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "4624525961951241845"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "4074629924267732136"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: DELETE group_order/${id}
+          method: DELETE
+          url: ${origin_1}/v1/group_order/${__encode_url(id_in_response_body_4)}
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: en
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsiY291cmllcmNsaWVudCIsIndvbHRhdXRoIiwicmVzdGF1cmFudC1hcGkiLCJ3b2x0LWNvbSIsInZlbnVlLWNvbnRlbnQtYXBpIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiZTVhNjRmZmNlYzE1MTFlYzk2ODQ3Mjk4YTRjODMzZmIiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjMzOTMzLCJleHAiOjE2NTUyMzU3MzMsImFtciI6W119.wq80Gj3hq7tuEl8jyDQYwLlcqEbvHohJnn_l3SdXm6eWLKPiQC0RrAtESI_k1IKIlEv9mXX18d1tBZ_qTDcJDA
+            - clientversionnumber: 1.7.40
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "5840204338497143744"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "4876682398367879647"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+          extract:
+            - id_in_response_body_6:
+                jsonPath: $["id"]
+            - venue_id_detail_in_response_body_6:
+                jsonPath: $["details"]["venue_id"]
+            - host_id_in_response_body_6:
+                jsonPath: $["host_id"]
+          assert: []
+
+        - description: POST group_order/${id}/estimates
+          method: POST
+          url: ${origin_1}/v1/group_order/${__encode_url(id_in_response_body_6)}/estimates
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: en
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsiY291cmllcmNsaWVudCIsIndvbHRhdXRoIiwicmVzdGF1cmFudC1hcGkiLCJ3b2x0LWNvbSIsInZlbnVlLWNvbnRlbnQtYXBpIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiZTVhNjRmZmNlYzE1MTFlYzk2ODQ3Mjk4YTRjODMzZmIiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjMzOTMzLCJleHAiOjE2NTUyMzU3MzMsImFtciI6W119.wq80Gj3hq7tuEl8jyDQYwLlcqEbvHohJnn_l3SdXm6eWLKPiQC0RrAtESI_k1IKIlEv9mXX18d1tBZ_qTDcJDA
+            - clientversionnumber: 1.7.40
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "5068618185026689473"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "1519973686997739301"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: GET venues/slug/esterika-pizza-chef/menu
+          method: GET
+          url: ${origin_1}/v4/venues/slug/esterika-pizza-chef/menu?unit_prices=true&show_weighted_items=true
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: en
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsiY291cmllcmNsaWVudCIsIndvbHRhdXRoIiwicmVzdGF1cmFudC1hcGkiLCJ3b2x0LWNvbSIsInZlbnVlLWNvbnRlbnQtYXBpIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiZTVhNjRmZmNlYzE1MTFlYzk2ODQ3Mjk4YTRjODMzZmIiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjMzOTMzLCJleHAiOjE2NTUyMzU3MzMsImFtciI6W119.wq80Gj3hq7tuEl8jyDQYwLlcqEbvHohJnn_l3SdXm6eWLKPiQC0RrAtESI_k1IKIlEv9mXX18d1tBZ_qTDcJDA
+            - clientversionnumber: 1.7.40
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "6392746121181758403"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "2119932946927779110"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+          extract:
+            - language_of_2nd_language_in_response_body_8:
+                jsonPath: $["languages"][1]["language"]
+          assert: []
+
+        - description: POST consumer
+          method: POST
+          url: ${origin_2}/v1/consumer
+          postData:
+            text: >-
+              {
+                "device_type": "web",
+                "build_version": 0,
+                "application_version": "",
+                "system_version": "",
+                "device_locale": "en-US",
+                "user_id": "${__escape_quotes(host_id_in_response_body_6)}",
+                "device_id": "46edd1e8-f919-470b-b909-013f2aad6fa1",
+                "visitor_id": "46edd1e8-f919-470b-b909-013f2aad6fa1",
+                "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36",
+                "upload_timestamp": 1655234670949,
+                "timezone": "Asia/Jerusalem",
+                "screen_size": "1440x900",
+                "session_id": "cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6",
+                "store_distribution": false,
+                "browser_fingerprint": "deaa68dc01bb2ea3c2c95ca82978af6a",
+                "event_bundle_id": "e34762f1-8565-4047-8f52-71dea9387dcc",
+                "events": [
+                  {
+                    "log_type": "session",
+                    "attributes": {
+                      "referrer_type": "link",
+                      "referred_link": "https://wolt.com/en/discovery"
+                    },
+                    "timestamp": 1655234651808,
+                    "event_name": "foreground"
+                  },
+                  {
+                    "log_type": "data",
+                    "view": "group_order_payment_details",
+                    "attributes": {
+                      "group_id": "${__escape_quotes(id_in_response_body_6)}"
+                    },
+                    "timestamp": 1655234653329,
+                    "event_name": "create_group"
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "group_order_payment_details",
+                    "attributes": {},
+                    "timestamp": 1655234651810,
+                    "duration": 1527
+                  },
+                  {
+                    "log_type": "data",
+                    "view": "invite_group_members",
+                    "attributes": {
+                      "group_id": "${__escape_quotes(id_in_response_body_6)}"
+                    },
+                    "timestamp": 1655234656902,
+                    "event_name": "invite_done"
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "invite_group_members",
+                    "attributes": {},
+                    "timestamp": 1655234653337,
+                    "duration": 3709
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "venue",
+                    "attributes": {
+                      "venue_id": "${__escape_quotes(venue_id_detail_in_response_body_6)}",
+                      "is_available": true,
+                      "venue_favorite": false,
+                      "menu_items_count": 53,
+                      "out_of_stock_items_count": 0,
+                      "has_images": true
+                    },
+                    "timestamp": 1655234657087,
+                    "duration": 3685
+                  },
+                  {
+                    "log_type": "view",
+                    "view": "venue",
+                    "attributes": {
+                      "venue_id": "${__escape_quotes(venue_id_detail_in_response_body_6)}",
+                      "is_available": true,
+                      "venue_favorite": false,
+                      "menu_items_count": 53,
+                      "out_of_stock_items_count": 0,
+                      "has_images": true
+                    },
+                    "timestamp": 1655234661434,
+                    "duration": 75
+                  },
+                  {
+                    "log_type": "data",
+                    "view": "featured",
+                    "attributes": {
+                      "page": "discovery:front-page:tel-aviv",
+                      "section_count": 11,
+                      "discovery_city": "tel-aviv"
+                    },
+                    "timestamp": 1655234661533,
+                    "event_name": "content_changed"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 0,
+                      "title": "${__escape_quotes(title_of_1st_item_of_1st_section_in_response_body_2)}",
+                      "track_id": "${__escape_quotes(track_id_of_1st_item_of_1st_section_in_response_body_2)}",
+                      "section_index": "0",
+                      "section_title": "",
+                      "section_name": "ta_wolt_news",
+                      "page": "discovery"
+                    },
+                    "timestamp": 1655234661970,
+                    "event_name": "banner"
+                  }
+                ]
+              }
+            mimeType: application/json
+          headers:
+            - accept: "*/*"
+            - accept-language: en-US,en;q=0.9
+            - client: web
+            - referer: https://wolt.com/
+            - x-api-key: Uyf4t2ie9Y1dWJDBjrmwmCdjsz9QFT21jU3WoAg1
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "4467737152475322953"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "380731287130333375"
+
+        - description: POST consumer
+          method: POST
+          url: ${origin_2}/v1/consumer
+          postData:
+            text: >-
+              {
+                "device_type": "web",
+                "build_version": 0,
+                "application_version": "",
+                "system_version": "",
+                "device_locale": "en-US",
+                "user_id": "${__escape_quotes(host_id_in_response_body_6)}",
+                "device_id": "46edd1e8-f919-470b-b909-013f2aad6fa1",
+                "visitor_id": "46edd1e8-f919-470b-b909-013f2aad6fa1",
+                "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36",
+                "upload_timestamp": 1655234700946,
+                "timezone": "Asia/Jerusalem",
+                "screen_size": "1440x900",
+                "session_id": "cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6",
+                "store_distribution": false,
+                "browser_fingerprint": "deaa68dc01bb2ea3c2c95ca82978af6a",
+                "event_bundle_id": "c9f37aed-5ee8-43e9-9ebe-2451328a9320",
+                "events": [
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 1,
+                      "title": "${__escape_quotes(title_of_2nd_item_of_1st_section_in_response_body_2)}",
+                      "track_id": "${__escape_quotes(track_id_of_2nd_item_of_1st_section_in_response_body_2)}",
+                      "section_index": "0",
+                      "section_title": "",
+                      "section_name": "ta_wolt_news",
+                      "page": "discovery"
+                    },
+                    "timestamp": 1655234672932,
+                    "event_name": "banner"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 2,
+                      "title": "${__escape_quotes(title_of_3rd_item_of_1st_section_in_response_body_2)}",
+                      "track_id": "${__escape_quotes(track_id_of_3rd_item_of_1st_section_in_response_body_2)}",
+                      "section_index": "0",
+                      "section_title": "",
+                      "section_name": "ta_wolt_news",
+                      "page": "discovery"
+                    },
+                    "timestamp": 1655234684696,
+                    "event_name": "banner"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 3,
+                      "title": "${__escape_quotes(title_of_4th_item_of_1st_section_in_response_body_2)}",
+                      "track_id": "${__escape_quotes(track_id_of_4th_item_of_1st_section_in_response_body_2)}",
+                      "section_index": "0",
+                      "section_title": "",
+                      "section_name": "ta_wolt_news",
+                      "page": "discovery"
+                    },
+                    "timestamp": 1655234696478,
+                    "event_name": "banner"
+                  }
+                ]
+              }
+            mimeType: application/json
+          headers:
+            - accept: "*/*"
+            - accept-language: en-US,en;q=0.9
+            - client: web
+            - referer: https://wolt.com/
+            - x-api-key: Uyf4t2ie9Y1dWJDBjrmwmCdjsz9QFT21jU3WoAg1
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "2148233950089115912"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "588524240071301821"
+
+        - description: GET order_details/subscriptions
+          method: GET
+          url: ${origin_1}/v2/order_details/subscriptions
+          headers:
+            - accept: application/json, text/plain, */*
+            - accept-language: en-US,en;q=0.9
+            - app-language: ${language_of_2nd_language_in_response_body_8}
+            - authorization: Bearer
+                eyJ0eXAiOiJ4LnVzZXIrand0IiwiYWxnIjoiRVMyNTYiLCJraWQiOiI3N2U4ZTk0MmUyNzAxMWVjOWI0MjBlNzUyNzNhNjM4YyJ9.eyJhdWQiOlsiY291cmllcmNsaWVudCIsIndvbHRhdXRoIiwicmVzdGF1cmFudC1hcGkiLCJ3b2x0LWNvbSIsInZlbnVlLWNvbnRlbnQtYXBpIl0sImlzcyI6IndvbHRhdXRoIiwianRpIjoiZTVhNjRmZmNlYzE1MTFlYzk2ODQ3Mjk4YTRjODMzZmIiLCJ1c2VyIjp7ImlkIjoiNjFlOTEyOWEwZTMwYzkxNjQ0NmFiNGQyIiwibmFtZSI6eyJmaXJzdF9uYW1lIjoiWWFubiIsImxhc3RfbmFtZSI6IkIifSwiZW1haWwiOiJ5YW5uQGxvYWRtaWxsLmNvbSIsInJvbGVzIjpbInVzZXIiXSwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBob25lX251bWJlcl92ZXJpZmllZCI6dHJ1ZSwiY291bnRyeSI6IklTUiIsImxhbmd1YWdlIjoiZW4iLCJwZXJtaXNzaW9ucyI6W10sInBob25lX251bWJlciI6Iis5NzI1NDgzMTAwNTUifSwiaWF0IjoxNjU1MjMzOTMzLCJleHAiOjE2NTUyMzU3MzMsImFtciI6W119.wq80Gj3hq7tuEl8jyDQYwLlcqEbvHohJnn_l3SdXm6eWLKPiQC0RrAtESI_k1IKIlEv9mXX18d1tBZ_qTDcJDA
+            - clientversionnumber: 1.7.40
+            - platform: Web
+            - referer: https://wolt.com/
+            - w-wolt-session-id: cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "5049626630159020202"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "8586718939997754343"
+            - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
+
+        - description: POST consumer
+          method: POST
+          url: ${origin_2}/v1/consumer
+          postData:
+            text: >-
+              {
+                "device_type": "web",
+                "build_version": 0,
+                "application_version": "",
+                "system_version": "",
+                "device_locale": "en-US",
+                "user_id": "${__escape_quotes(host_id_in_response_body_6)}",
+                "device_id": "46edd1e8-f919-470b-b909-013f2aad6fa1",
+                "visitor_id": "46edd1e8-f919-470b-b909-013f2aad6fa1",
+                "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36",
+                "upload_timestamp": 1655234730948,
+                "timezone": "Asia/Jerusalem",
+                "screen_size": "1440x900",
+                "session_id": "cb1f083a-80d2-4980-ba4c-b7e7a13fa4b6",
+                "store_distribution": false,
+                "browser_fingerprint": "deaa68dc01bb2ea3c2c95ca82978af6a",
+                "event_bundle_id": "62d56a26-00e7-4885-9098-1ccbec448638",
+                "events": [
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 4,
+                      "title": "${__escape_quotes(title_of_5th_item_of_1st_section_in_response_body_2)}",
+                      "track_id": "${__escape_quotes(track_id_of_5th_item_of_1st_section_in_response_body_2)}",
+                      "section_index": "0",
+                      "section_title": "",
+                      "section_name": "ta_wolt_news",
+                      "page": "discovery"
+                    },
+                    "timestamp": 1655234708246,
+                    "event_name": "banner"
+                  },
+                  {
+                    "log_type": "impression",
+                    "view": "featured",
+                    "attributes": {
+                      "content_type": "image",
+                      "item_index": 5,
+                      "title": "${__escape_quotes(title_of_6th_item_of_1st_section_in_response_body_2)}",
+                      "track_id": "${__escape_quotes(track_id_of_6th_item_of_1st_section_in_response_body_2)}",
+                      "section_index": "0",
+                      "section_title": "",
+                      "section_name": "ta_wolt_news",
+                      "page": "discovery"
+                    },
+                    "timestamp": 1655234728511,
+                    "event_name": "banner"
+                  }
+                ]
+              }
+            mimeType: application/json
+          headers:
+            - accept: "*/*"
+            - accept-language: en-US,en;q=0.9
+            - client: web
+            - referer: https://wolt.com/
+            - x-api-key: Uyf4t2ie9Y1dWJDBjrmwmCdjsz9QFT21jU3WoAg1
+            - x-datadog-origin: rum
+            - x-datadog-parent-id: "4171174949929928606"
+            - x-datadog-sampling-priority: "1"
+            - x-datadog-trace-id: "1616215028167199569"
 
     runInCi: false
 dependencies:

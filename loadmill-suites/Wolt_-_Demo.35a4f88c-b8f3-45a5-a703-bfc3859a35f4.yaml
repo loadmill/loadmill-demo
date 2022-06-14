@@ -112,13 +112,13 @@ flows:
             - x-datadog-trace-id: "3042161995213551646"
             - x-wolt-web-clientid: deaa68dc01bb2ea3c2c95ca82978af6a
 
-        - description: POST group_order
+        - description: POST Create Group Order
           method: POST
           url: ${origin_1}/v1/group_order/
           postData:
             text: >-
               {
-                "name": "Yann and friends",
+                "name": "Mikko and friends",
                 "venue_id": "${__escape_quotes(id_venue_of_2nd_item_of_2nd_section_in_response_body_2)}",
                 "emoji": "burger",
                 "delivery_method": "homedelivery"
